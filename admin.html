@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen">
+    <script>
+
+        const email = localStorage.getItem("userEmail");
+
+        if (email !== "admin@quantumlearn.com") {
+
+            alert("Access Denied!");
+
+            window.location.href = "index.html";
+
+        }
+
+    </script>
+    <!-- HEADER -->
+    <header class="bg-slate-800 p-5 shadow-lg">
+
+        <h1 class="text-3xl font-bold text-green-400">
+            Lecturer Dashboard
+        </h1>
+
+
+
+    </header>
+
+
+    <div class="flex">
+
+        <!-- SIDEBAR -->
+        <aside class="w-56 bg-slate-800 min-h-screen p-5 flex-shrink-0">
+
+            <ul class="space-y-6">
+
+                <li>
+                    <a href="#" class="block bg-green-500 hover:bg-green-600 p-3 rounded-lg text-center">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="leaderboard.html" class="block bg-slate-700 hover:bg-slate-600 p-3 rounded-lg text-center">
+                        Leaderboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#addQuiz" class="block bg-slate-700 hover:bg-slate-600 p-3 rounded-lg text-center">
+                        Add Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block bg-slate-700 hover:bg-slate-600 p-3 rounded-lg text-center">
+                        Analytics
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 w-full mb-10">
+
+                <div class="bg-slate-800 rounded-xl p-5 shadow-lg h-36">
+                    <h3 class="text-lg text-slate-400">Total Students</h3>
+                    <p id="totalStudents" class="text-3xl font-bold text-green-400 mt-2">0</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-xl shadow-lg h-36">
+                    <h3 class="text-lg text-slate-300">Quiz Attempts</h3>
+                    <p id="quizAttempts" class="text-4xl font-bold text-blue-400 mt-3">0</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-xl shadow-lg h-36">
+                    <h3 class="text-lg text-slate-300">Highest Score</h3>
+                    <p id="highestScore" class="text-4xl font-bold text-yellow-400 mt-3">0</p>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-xl shadow-lg h-36">
+                    <h3 class="text-lg text-slate-300">Average Points</h3>
+                    <p id="averageScoreAdmin" class="text-4xl font-bold text-purple-400 mt-3">0%</p>
+                </div>
+                <!-- ADD QUIZ SECTION -->
+                <section id="addQuiz" class="col-span-4 bg-slate-800 rounded-xl shadow-lg p-10 mt-4">
+
+                    <h2 class="text-2xl font-bold mb-6 text-green-400">
+
+                        Add Quiz Question
+
+                    </h2>
+
+
+                    <div class="grid grid-cols-2 gap-5 max-w-5xl mx-auto">
+                        <select id="course" class="col-span-2 w-full p-4 rounded-lg bg-slate-700 outline-none">
+
+                            <option value="">Select Course</option>
+
+                            <option value="CSC101">CSC101</option>
+                            <option value="CSC102">CSC102</option>
+                            <option value="CSC201">CSC201</option>
+                            <option value="CSC202">CSC202</option>
+                            <option value="CSC301">CSC301</option>
+                            <option value="CSC302">CSC302</option>
+                            <option value="CSC401">CSC401</option>
+                            <option value="CSC402">CSC402</option>
+
+                        </select>
+
+                        <input type="text" id="quizQuestion" placeholder="Enter Question"
+                            class="md:col-span-2 w-full p-4 rounded-lg bg-slate-700 outline-none">
+
+
+                        <input type="text" id="option1" placeholder="Option 1"
+                            class="w-full p-4 rounded-lg bg-slate-700 outline-none">
+
+
+                        <input type="text" id="option2" placeholder="Option 2"
+                            class="w-full p-4 rounded-lg bg-slate-700 outline-none">
+
+
+                        <input type="text" id="option3" placeholder="Option 3"
+                            class="w-full p-4 rounded-lg bg-slate-700 outline-none">
+
+
+                        <input type="text" id="option4" placeholder="Option 4"
+                            class="w-full p-4 rounded-lg bg-slate-700 outline-none">
+
+                        <input type="text" id="correctAnswer" placeholder="Correct Answer"
+                            class="w-full p-4 rounded-lg bg-slate-700 outline-none">
+
+                        <button onclick="addQuizQuestion()"
+                            class="w-full h-full bg-green-500 hover:bg-green-600 rounded-lg font-semibold">
+
+                            Add Question
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+        </main>
+
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module">
+
+        window.addEventListener("load", () => {
+
+            console.log("Admin page loaded");
+
+            if (window.loadAdminAnalytics) {
+
+                window.loadAdminAnalytics();
+
+            } else {
+
+                console.log("loadAdminAnalytics not found");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen flex items-center justify-center" data-course="CSC202">
+
+    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg w-[500px]">
+
+        <h1 class="text-3xl font-bold mb-6 text-center">
+            CSC 202 Quiz
+        </h1>
+        <div class="text-center mb-4">
+            <p class="text-lg">
+                ⏳ Time Left:
+                <span id="timer" class="text-red-400 font-bold">
+                    30
+                </span>s
+            </p>
+        </div>
+        <div class="mt-4 mb-6">
+
+    <div class="flex justify-between text-sm mb-2">
+        <span id="questionNumber">Question 1 of 10</span>
+        <span id="progressPercent">10%</span>
+    </div>
+
+    <div class="w-full bg-slate-700 rounded-full h-3">
+
+        <div id="progressBar"
+            class="bg-green-500 h-3 rounded-full"
+            style="width:10%;">
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- Question -->
+        <h2 id="question" class="text-xl mb-6">
+            Question appears here
+        </h2>
+
+        <!-- Options -->
+        <div class="space-y-4">
+
+            <button onclick="checkAnswer(this)"
+                class="option w-full bg-slate-700 hover:bg-green-500 p-3 rounded-lg text-left">
+                Option 1
+            </button>
+
+            <button onclick="checkAnswer(this)"
+                class="option w-full bg-slate-700 hover:bg-green-500 p-3 rounded-lg text-left">
+                Option 2
+            </button>
+
+            <button onclick="checkAnswer(this)"
+                class="option w-full bg-slate-700 hover:bg-green-500 p-3 rounded-lg text-left">
+                Option 3
+            </button>
+
+            <button onclick="checkAnswer(this)"
+                class="option w-full bg-slate-700 hover:bg-green-500 p-3 rounded-lg text-left">
+                Option 4
+            </button>
+
+        </div>
+
+        <!-- Next Button -->
+        <button onclick="nextQuestion()"
+            class="mt-8 w-full bg-green-500 hover:bg-green-600 py-3 rounded-lg font-semibold">
+            Next Question
+        </button>
+
+        <!-- Score -->
+        <div class="mt-6 text-center">
+
+            <p class="text-lg">
+                Score:
+                <span id="score">0</span>
+            </p>
+
+            <p class="mt-2 text-lg">
+                Level:
+                <span id="level" class="text-blue-400">
+                    Beginner
+                </span>
+            </p>
+
+            <p class="mt-2 text-lg">
+                Badge:
+                <span id="badge" class="text-yellow-400">
+                    Quiz Starter
+                </span>
+            </p>
+
+        </div>
+        <script type="module" src="script.js"></script>
+</body>
+
+</html>

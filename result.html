@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 text-white flex items-center justify-center min-h-screen">
+
+<div class="bg-slate-800 p-10 rounded-2xl shadow-xl w-[500px] text-center">
+
+    <h1 class="text-4xl font-bold text-green-400 mb-6">
+        🎉 Quiz Completed
+    </h1>
+
+    <h2 class="text-2xl mb-6">
+        Congratulations,
+        <span id="studentName"></span>
+    </h2>
+
+    <div class="space-y-4 text-xl">
+
+        <p>
+            🏆 Score:
+            <span id="score" class="font-bold text-green-400"></span>
+        </p>
+
+        <p>
+            📈 Level:
+            <span id="level" class="font-bold text-blue-400"></span>
+        </p>
+
+        <p>
+            🥇 Badge:
+            <span id="badge" class="font-bold text-yellow-400"></span>
+        </p>
+
+    </div>
+
+    <div class="mt-8 space-x-4">
+
+        <button onclick="window.location='dashboard.html'"
+            class="bg-green-500 px-6 py-3 rounded-lg hover:bg-green-600">
+            Dashboard
+        </button>
+
+        <button onclick="window.location='leaderboard.html'"
+            class="bg-blue-500 px-6 py-3 rounded-lg hover:bg-blue-600">
+            Leaderboard
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const score = localStorage.getItem("resultScore");
+const level = localStorage.getItem("resultLevel");
+const badge = localStorage.getItem("resultBadge");
+const email = localStorage.getItem("userEmail");
+
+document.getElementById("score").textContent = score;
+document.getElementById("level").textContent = level;
+document.getElementById("badge").textContent = badge;
+
+const name = email.split("@")[0];
+
+document.getElementById("studentName").textContent =
+name.charAt(0).toUpperCase() + name.slice(1);
+
+</script>
+
+</body>
+</html>

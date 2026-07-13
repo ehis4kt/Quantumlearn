@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-slate-800 p-4 flex justify-between items-center">
+
+        <h1 class="text-2xl font-bold text-green-400">
+            QuantumLearn
+        </h1>
+
+        <button onclick="logoutUser()" class="bg-red-500 px-4 py-2 rounded-lg hover:bg-red-600">
+            Logout
+        </button>
+
+    </nav>
+
+    <!-- Main Content -->
+    <div class="p-8">
+
+        <h2 class="text-3xl font-bold mb-6">
+            Student Dashboard
+        </h2>
+        <div class="mb-6">
+            <h3 class="text-xl font-semibold text-green-400">
+                👋 Welcome back,
+                <span id="studentName">Student</span>
+            </h3>
+
+            <p class="text-slate-400">
+                <span id="studentEmail"></span>
+            </p>
+        </div>
+
+        <button onclick="window.location.href='leaderboard.html'"
+            class="mb-8 bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg font-semibold">
+            View Leaderboard
+        </button>
+
+        <!-- Stats Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
+
+            <!-- Total Points -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fas fa-trophy text-yellow-400 text-3xl"></i>
+                    <h3 class="text-xl">Total Points</h3>
+                </div>
+
+                <p class="text-4xl font-bold text-green-400">
+                    <span id="totalPoints">0</span>
+                </p>
+            </div>
+
+            <!-- Current Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fas fa-chart-line text-blue-400 text-3xl"></i>
+                    <h3 class="text-xl">Current Level</h3>
+                </div>
+
+                <p class="text-4xl font-bold text-blue-400">
+                    <span id="currentLevel">Beginner</span>
+                </p>
+            </div>
+            <!-- Badge -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fas fa-medal text-yellow-400 text-3xl"></i>
+                    <h3 class="text-xl">Badge Earned</h3>
+                </div>
+
+                <p class="text-2xl font-bold text-yellow-400">
+                    <span id="badgeEarned">Quiz Starter</span>
+                </p>
+            </div>
+
+            <!-- Quizzes Taken -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-3 mb-3">
+                    <i class="fas fa-file-circle-check text-purple-400 text-3xl"></i>
+                    <h3 class="text-xl">Quizzes Taken</h3>
+                </div>
+
+                <p class="text-4xl font-bold text-purple-400">
+                    <span id="quizzesTaken">0</span>
+                </p>
+            </div>
+
+            <!-- Average Score -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+    <div class="flex items-center gap-3 mb-3">
+        <i class="fas fa-chart-pie text-cyan-400 text-3xl"></i>
+        <h3 class="text-xl">Average Score</h3>
+    </div>
+
+    <p class="text-4xl font-bold text-cyan-400">
+        <span id="averageScore">0%</span>
+    </p>
+</div>
+        </div>
+
+        <!-- Quiz Section -->
+        <h2 class="text-2xl font-bold mb-6">
+            Available Quizzes
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- 100 Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-green-400">
+                    CSC 101
+                </h3>
+
+                <p class="text-slate-300 mb-4">
+                    Introduction to Computer Science
+                </p>
+
+                <button onclick="window.location.href='CSC101.html'"
+                    class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- 100 Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-green-400">
+                    CSC 102
+                </h3>
+
+                <p class="text-slate-300 mb-4">
+                    Computer Programming Fundamentals
+                </p>
+
+                <button onclick="window.location.href='CSC102.html'"
+                    class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- 200 Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-blue-400">
+                    CSC 201
+                </h3>
+
+                <p class="text-slate-300 mb-4">
+                    Data Structures and Algorithms
+                </p>
+
+                <button onclick="window.location.href='CSC201.html'"
+                    class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- 200 Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-blue-400">
+                    CSC 202
+                </h3>
+
+                <p class="text-slate-300 mb-4">
+                    Database Management Systems
+                </p>
+
+                <button onclick="window.location.href='CSC202.html'"
+                    class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- 300 Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-yellow-400">
+                    CSC 301
+                </h3>
+
+                <p class="text-slate-300 mb-4">
+                    Software Engineering
+                </p>
+
+                <button onclick="window.location.href='CSC301.html'"
+                    class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- 300 Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-yellow-400">
+                    CSC 302
+                </h3>
+
+                <p class="text-slate-300 mb-4">
+                    Operating Systems
+                </p>
+
+                <button onclick="window.location.href='CSC302.html'"
+                    class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- 400 Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-red-400">
+                    CSC 401
+                </h3>
+
+                <p class="text-slate-300 mb-4">
+                    Artificial Intelligence
+                </p>
+
+                <button onclick="window.location.href='CSC401.html'"
+                    class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg">
+                    Start Quiz
+                </button>
+            </div>
+
+            <!-- 400 Level -->
+            <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-2 text-red-400">
+                    CSC 402
+                </h3>
+
+                <p class="text-slate-300 mb-4">
+                    Computer Networks and Security
+                </p>
+
+                <button onclick="window.location.href='CSC402.html'"
+                    class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg">
+                    Start Quiz
+                </button>
+            </div>
+
+        </div>
+        <script type="module" src="script.js"></script>
+        
+
+       
+</body>
+
+</html>
