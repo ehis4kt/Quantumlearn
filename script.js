@@ -231,8 +231,8 @@ if (document.getElementById("question")) {
         } else {
 
             const level =
-                score >= 50 ? "Advanced" :
-                    score >= 30 ? "Intermediate" :
+                score >= 15 ? "Advanced" :
+                    score >= 8 ? "Intermediate" :
                         "Beginner";
 
             const email =
@@ -266,7 +266,7 @@ window.location.href = "result.html";
 
     function updateGamification() {
 
-        if (score >= 50) {
+        if (score >= 15) {
 
             levelElement.innerText =
                 "Advanced";
@@ -274,7 +274,7 @@ window.location.href = "result.html";
             badgeElement.innerText =
                 "Quiz Master";
 
-        } else if (score >= 30) {
+        } else if (score >= 8) {
 
             levelElement.innerText =
                 "Intermediate";
@@ -360,12 +360,12 @@ window.loadStudentProgress = async function () {
     let level = "Beginner";
     let badge = "Quiz Starter";
 
-    if (averageScore >= 30) {
+    if (averageScore >= 15) {
 
         level = "Advanced";
         badge = "Quiz Master";
 
-    } else if (averageScore >= 20) {
+    } else if (averageScore >= 8) {
 
         level = "Intermediate";
         badge = "Smart Learner";
